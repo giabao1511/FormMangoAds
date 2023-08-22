@@ -54,65 +54,67 @@ export default function Home() {
   REDIS_QUEUE default`;
 
   return (
-    <div className="center">
-      <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        {data?.split("\n")?.map((item, index) => {
-          const element = item.split(" ");
+    <>
+      <div className="center">
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 600 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          {data?.split("\n")?.map((item, index) => {
+            const element = item.split(" ");
 
-          if (element?.length === 1 || element?.length === 5) {
-            return (
-              <>
-                <br key={index} />
-                <br key={index} />
-              </>
-            );
-          }
+            if (element?.length === 1 || element?.length === 5) {
+              return (
+                <>
+                  <br key={index} />
+                  <br key={index} />
+                </>
+              );
+            }
 
-          if (element?.[3] === "TRUE" || element?.[3] === "FALSE") {
-            console.log(element[3]);
-            return (
-              <div key={index}>
-                <Form.Item
-                  label={element[2]}
-                  name={element[2]}
-                  valuePropName="checked"
-                  initialValue={element?.[3] === "TRUE" ? true : false}
-                >
-                  <Checkbox></Checkbox>
-                </Form.Item>
-              </div>
-            );
-          } else {
-            return (
-              <div key={index}>
-                <Form.Item
-                  label={element[2]}
-                  name={element[2]}
-                  initialValue={element[3]}
-                  className="asdasdas"
-                >
-                  <Input />
-                </Form.Item>
-              </div>
-            );
-          }
-        })}
+            if (element?.[3] === "TRUE" || element?.[3] === "FALSE") {
+              console.log(element[3]);
+              return (
+                <div key={index}>
+                  <Form.Item
+                    label={element[2]}
+                    name={element[2]}
+                    valuePropName="checked"
+                    initialValue={element?.[3] === "TRUE" ? true : false}
+                  >
+                    <Checkbox></Checkbox>
+                  </Form.Item>
+                </div>
+              );
+            } else {
+              return (
+                <div key={index}>
+                  <Form.Item
+                    label={element[2]}
+                    name={element[2]}
+                    initialValue={element[3]}
+                    className="asdasdas"
+                  >
+                    <Input />
+                  </Form.Item>
+                </div>
+              );
+            }
+          })}
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </>
   );
 }
