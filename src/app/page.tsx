@@ -11,45 +11,6 @@ export default function Home() {
     console.log("Failed:", errorInfo);
   };
 
-  type FieldType = {
-    ApacheConfig?: string;
-    ServerName?: string;
-    MappingPort?: string;
-    APP_NAME?: string;
-    APP_ENV?: string;
-    APP_DEBUG?: boolean;
-    APP_KEY?: string;
-    APP_URL?: string;
-    ADMIN_FRONT_URL?: string;
-    WEB_FRONT_URL?: string;
-    LOG_CHANNEL?: string;
-    DB_CONNECTION?: string;
-    DB_HOST?: string;
-    DB_PORT?: number;
-    DB_DATABASE?: string;
-    DB_USERNAME?: string;
-    DB_PASSWORD?: string;
-    DB_SEARCH_PATH?: string;
-    DB_SSL_MODE?: string;
-    REDIS_HOST?: string;
-    REDIS_PASSWORD?: string;
-    SCRIBE_AUTH_KEY?: string;
-    CACHE_DRIVER?: string;
-    MAIL_DRIVER?: string;
-    SENTINEL_MULTIPLE_SESSION_MAX?: string;
-    QUEUE_CONNECTION?: string;
-    FILESYSTEM_DISK?: string;
-    MINIO_CDN?: string;
-    MINIO_ENDPOINT?: string;
-    MINIO_KEY?: string;
-    MINIO_SECRET?: string;
-    MINIO_BUCKET?: string;
-    MINIO_BUCKET_PROXY?: string;
-    MINIO_REGION?: string;
-    ELASTIC_APM_ENABLED?: boolean;
-    REDIS_QUEUE?: string;
-  };
-
   const data = `  ApacheConfig exim.mangoads.com.vn.conf
   ServerName exim.mangoads.com.vn
   MappingPort http://localhost:6789
@@ -92,8 +53,6 @@ export default function Home() {
   ELASTIC_APM_ENABLED FALSE
   REDIS_QUEUE default`;
 
-  console.log(data.split("\n"));
-
   return (
     <Form
       name="basic"
@@ -107,7 +66,6 @@ export default function Home() {
     >
       {data?.split("\n")?.map((item, index) => {
         const element = item.split(" ");
-        console.log(element);
 
         if (element?.length === 1 || element?.length === 5) {
           return <br key={index} />;
