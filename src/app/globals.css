@@ -1,3 +1,19 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+.center {
+  /* position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%); */
+  margin-left: 100px;
+}
+
+.ant-col {
+  overflow: visible !important;
+}
+
+.ant-input {
+  margin-left: 50px;
+}
